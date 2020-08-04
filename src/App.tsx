@@ -24,7 +24,7 @@ const MyForm: React.FC = () => {
     datePicker: yup.date().required(),
   });
 
-  const {register, handleSubmit, errors, control, setError, clearErrors, getValues, setValue, reset, formState} = useForm({
+  const {register, handleSubmit, errors, control} = useForm({
     mode: "onBlur",
     resolver: yupResolver(schema)
   });
@@ -82,7 +82,7 @@ const MyForm: React.FC = () => {
                     onChange={onChange}
                     onBlur={onBlur}
                     selected={value}
-                    customInput={<CustomInput/>}
+                    customInput={<CustomInput isInvalid={errors.datePicker}/>}
                   />
                 )}
               />
